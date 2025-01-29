@@ -1,0 +1,21 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+      <div class="form-group">
+        <label for="name">Dance Group Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="dance_group.name"
+          name="name"
+        />
+      </div>
+      <button (click)="saveDanceGroup()" class="btn btn-success">Submit</button>
+    } @else {
+      <h4>Dance Group was added successfully!</h4>
+      <button class="btn btn-success" (click)="newDanceGroup()">Add</button>
+    }
+  </div>
+</div>

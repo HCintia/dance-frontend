@@ -1,0 +1,31 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Dance</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="girls" class="nav-link">Girls</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add-girl" class="nav-link">Add new Girl Dancer</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="boys" class="nav-link">Boys</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add-boy" class="nav-link">Add new Boy Dancer</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="dance_groups" class="nav-link">Dance Groups</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add-dance_group" class="nav-link">Create new Dance Group</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<router-outlet />

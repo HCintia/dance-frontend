@@ -1,0 +1,27 @@
+<div class="list row">
+
+  <div class="col-md-6">
+    <h4>Girl Dancers</h4>
+    <ul class="list-group">
+      @for (girl of girls; track girl.id; let i = $index) {
+        <li
+          class="list-group-item"
+          [class.active]="i == currentIndex"
+          (click)="setActiveGirl(girl, i)"
+        >
+          {{ girl.g_name }}
+        </li>
+      }
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllGirls()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-girl-details
+      [viewMode]="true"
+      [currentGirl]="currentGirl"
+    ></app-girl-details>
+  </div>
+</div>

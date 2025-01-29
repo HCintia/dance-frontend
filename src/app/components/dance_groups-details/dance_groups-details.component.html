@@ -1,0 +1,66 @@
+@if (viewMode){
+  @if (currentDanceGroup.id){
+    <h4>Dance Group</h4>
+    <div>
+      <label><strong>ID:</strong></label>
+      {{ currentDanceGroup.id }}
+    </div>
+    <div>
+      <label><strong>Name:</strong></label> {{ currentDanceGroup.name }}
+    </div>
+    <h6>Boys:</h6>
+    <ul class="list-group">
+      @for (boy of currentDanceGroup.boys; track boy.id; let i = $index) {
+        <li
+          class="list-group-item"
+        >
+          {{ boy.b_name }}
+        </li>
+      }
+    </ul>
+    <h6>Girls:</h6>
+    <ul class="list-group">
+      @for (girl of currentDanceGroup.girls; track girl.id; let i = $index) {
+        <li
+          class="list-group-item"
+        >
+          {{ girl.g_name }}
+        </li>
+      }
+    </ul>
+
+    <a class="badge badge-warning" routerLink="/dance_groups/{{ currentDanceGroup.id }}">
+      Edit
+    </a>
+  } @else {<p>Please click on a Dance Group...</p>}
+} @else {
+  @if (currentDanceGroup.id) {
+    <div class="edit-form">
+      <h4>Dance Group</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentDanceGroup.name"
+            name="name"
+          />
+        </div>
+      </form>
+
+      <button class="badge badge-danger mr-2" (click)="deleteDanceGroup()">
+        Delete
+      </button>
+
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateDanceGroup()">
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  } @else {<p>Cannot access this Dance Group...</p>}
+}

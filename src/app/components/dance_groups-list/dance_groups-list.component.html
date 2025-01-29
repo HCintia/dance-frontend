@@ -1,0 +1,26 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Dance Groups</h4>
+    <ul class="list-group">
+      @for (dance_group of dance_groups; track dance_group.id; let i = $index) {
+        <li
+          class="list-group-item"
+          [class.active]="i == currentIndex"
+          (click)="setActiveDanceGroup(dance_group, i)"
+        >
+          {{ dance_group.name }}
+        </li>
+      }
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDanceGroups()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-dancegroups-details
+      [viewMode]="true"
+      [currentDanceGroup]="currentDanceGroup"
+    ></app-dancegroups-details>
+  </div>
+</div>

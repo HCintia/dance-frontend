@@ -1,0 +1,46 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+      <div class="form-group">
+        <label for="g_name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="g_name"
+          required
+          [(ngModel)]="girl.g_name"
+          name="g_name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="g_b_year">Birth year:</label>
+        <input
+          class="form-control"
+          id="g_b_year"
+          required
+          [(ngModel)]="girl.g_b_year"
+          name="g_b_year"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dance_groups">Dance Group</label>
+        <ng-multiselect-dropdown
+          id="dance_groups"
+          [placeholder]="'custom placeholder'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedDance_Groups"
+          (onSelect)="onItemSelect($event)"
+        >
+        </ng-multiselect-dropdown>
+
+      </div>
+
+      <button (click)="saveGirl()" class="btn btn-success">Submit</button>
+    } @else {
+      <h4>Dancer was added successfully!</h4>
+      <button class="btn btn-success" (click)="newGirl()">Add</button>
+    }
+  </div>
+</div>
